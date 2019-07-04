@@ -1,0 +1,24 @@
+<div class="col-lg-3 col-md-3">
+    <div class="form-wrapper">
+        <h4>Github Users Search</h4>
+        <form class="search-form" [formGroup]="searchForm" novalidate>
+            <label>Type any name you want to find:</label>
+            <div>
+                <input type="text" id="name" class="name"
+                    [ngClass]="{inputError: searchForm.controls['name'].invalid && searchForm.controls['name'].touched}"
+                    formControlName="name">
+                <button class="btn btn-primary" (click)="searchUser()" [disabled]="searchForm.invalid"
+                    type="submit">Search</button>
+                <div class="errorAlert">
+                    <div class="alert"
+                        *ngIf="searchForm.controls['name'].touched && searchForm.controls['name'].invalid">
+                        Type a valid name
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="col-lg-9 col-md-9">
+    <app-users-output></app-users-output>
+</div>

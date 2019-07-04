@@ -1,0 +1,11 @@
+<div class="profile-wrapper">
+    <div class="col-md-6 avatar" *ngIf="response">
+        <img src="{{response.avatar_url}}"/>
+    </div>
+    <div class="col-md-6 bio">
+        <h3>{{response.login}}</h3>
+        <h6>id: {{response.id}}</h6>
+        <p>Public repos count: {{response.public_repos}}</p>
+        <a href="{{response.html_url}}">Visit a User's GitHub</a>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="table" *ngIf="users$|async as Users">
+    <h4>Users found: {{Users.total_count}}</h4>
+    <tr *ngFor="let user of Users.items; let even = even; let odd = odd;" [ngClass]="{odd:odd, even:even}">
+        <td><a [routerLink]="['user', user.login ]" >{{user.login}}</a></td>
+    </tr>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" *ngIf="page>1" class="btn btn-secondary" (click)="goToPrevious()">Previous</button>
+        <button type="button" *ngIf="(page*100) < Users.total_count" class="btn btn-secondary" (click)="goToNext()">Next</button>
+    </div>
+</div>
